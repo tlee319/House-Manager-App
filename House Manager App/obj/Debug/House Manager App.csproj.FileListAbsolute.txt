@@ -1,0 +1,8 @@
+c:\users\thomas\documents\visual studio 2015\Projects\House Manager App\House Manager App\bin\Debug\House Manager App.exe.config
+c:\users\thomas\documents\visual studio 2015\Projects\House Manager App\House Manager App\obj\Debug\House Manager App.csprojResolveAssemblyReference.cache
+c:\users\thomas\documents\visual studio 2015\Projects\House Manager App\House Manager App\obj\Debug\House_Manager_App.Properties.Resources.resources
+c:\users\thomas\documents\visual studio 2015\Projects\House Manager App\House Manager App\obj\Debug\House Manager App.csproj.GenerateResource.Cache
+c:\users\thomas\documents\visual studio 2015\Projects\House Manager App\House Manager App\bin\Debug\House Manager App.exe
+c:\users\thomas\documents\visual studio 2015\Projects\House Manager App\House Manager App\bin\Debug\House Manager App.pdb
+c:\users\thomas\documents\visual studio 2015\Projects\House Manager App\House Manager App\obj\Debug\House Manager App.exe
+c:\users\thomas\documents\visual studio 2015\Projects\House Manager App\House Manager App\obj\Debug\House Manager App.pdb
