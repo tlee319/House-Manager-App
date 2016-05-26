@@ -15,6 +15,13 @@ namespace House_Manager_App
         public MainWindow()
         {
             InitializeComponent();
+
+            Demo();
+        }
+
+        private void Demo()
+        {
+            ChoreManager.CreateChoreList(new DateTime(2016, 6, 6));
         }
     }
 }

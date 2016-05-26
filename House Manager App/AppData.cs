@@ -10,11 +10,13 @@ namespace House_Manager_App
     {
         public static List<Pledge> Pledges { get; set; }
         public static List<Brother> Brothers { get; set; }
+        public static List<Chore> Chores { get; set; }
 
         public static void InitializeAppData()
         {
             Pledges = new List<Pledge>();
             Brothers = new List<Brother>();
+            Chores = new List<Chore>();
         }
     }
 }
