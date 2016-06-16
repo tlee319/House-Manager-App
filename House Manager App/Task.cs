@@ -11,9 +11,8 @@ namespace House_Manager_App
         private IPerson mAssignedPerson;
         private Chore mAssignedChore;
 
-        public Task (IPerson assignedPerson, Chore assignedChore)
+        public Task (Chore assignedChore)
         {
-            mAssignedPerson = assignedPerson;
             mAssignedChore = assignedChore;
         }
     }

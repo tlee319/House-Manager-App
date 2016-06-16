@@ -9,5 +9,6 @@ namespace House_Manager_App
     public interface IPerson
     {
         bool[] Availability { get; set; }
+        Chore[] ToDo { get; set; }
     }
 }

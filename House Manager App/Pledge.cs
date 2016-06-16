@@ -10,7 +10,8 @@ namespace House_Manager_App
     {
         public string Name { get; set; }
         public bool[] Availability { get; set; }
-        
+        public Chore[] ToDo { get; set; }
+
         public Pledge (string mName, bool[] mAvailability)
         {
             Name = mName;

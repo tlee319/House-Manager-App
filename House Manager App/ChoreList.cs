@@ -16,6 +16,7 @@ namespace House_Manager_App
         private List<Task> Tuesday = new List<Task>();
         private List<Task> Wednesday = new List<Task>();
         private List<Task> Thursday = new List<Task>();
+        private List<Task> Friday = new List<Task>();
         private List<Task> Saturday = new List<Task>();
         private List<Task> Sunday = new List<Task>();
 
@@ -48,12 +49,38 @@ namespace House_Manager_App
 
         public void LoadChoreForEachDay()
         {
-            //Some kind of bullshit logic for now, but real logic coming up soon
+            // Populate each Tasks with chores in it that need to be done for each day.
+            // We will assign a brother to each Tasks.
             foreach (Chore c in AppData.Chores)
             {
-                // IF monday, add to Monday, or whatever....
-
-                // Think about some logic for this
+                if (c.Frequency[0] == true)
+                {
+                    Monday.Add(new Task(c));
+                }
+                else if (c.Frequency[1] == true)
+                {
+                    Tuesday.Add(new Task(c));
+                }
+                else if (c.Frequency[2] == true)
+                {
+                    Wednesday.Add(new Task(c));
+                }
+                else if (c.Frequency[3] == true)
+                {
+                    Thursday.Add(new Task(c));
+                }
+                else if (c.Frequency[4] == true)
+                {
+                    Friday.Add(new Task(c));
+                }
+                else if (c.Frequency[5] == true)
+                {
+                    Saturday.Add(new Task(c));
+                }
+                else if (c.Frequency[6] == true)
+                {
+                    Sunday.Add(new Task(c));
+                }
             }
         }
     }

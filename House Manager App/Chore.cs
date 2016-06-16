@@ -11,13 +11,14 @@ namespace House_Manager_App
         public string ID { get; set; }
         public string Description { get; set; }
         public int Difficulty { get; set; }
-        //public bool[] frequency?
+        public bool[] Frequency { get; set; }
 
-        public Chore (string mID, string mDescription, int mDifficulty)
+        public Chore (string mID, string mDescription, int mDifficulty, bool[] mFrequency)
         {
             ID = mID;
             Description = mDescription;
             Difficulty = mDifficulty;
+            Frequency = mFrequency;
         }
 
         public Chore()

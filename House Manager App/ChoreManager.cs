@@ -8,11 +8,12 @@ namespace House_Manager_App
 {
     public static class ChoreManager
     {
-        private static List<ChoreList> ChoreLists = new List<ChoreList>();
+        // Will be using a dictionary in the future
+        private static ChoreList mChoreList1;
 
         public static void CreateChoreList(DateTime startDate)
         {
-            ChoreLists.Add(new ChoreList(AssignPeople(), startDate));
+            mChoreList1 = new ChoreList(AssignPeople(), startDate);
         }
 
         public static List<IPerson> AssignPeople()
@@ -37,12 +38,7 @@ namespace House_Manager_App
 
         public static void AssignChores()
         {
-
-        }
-
-        public static void AssignChore()
-        {
-
+            mChoreList1.LoadChoreForEachDay();
         }
     }
 }

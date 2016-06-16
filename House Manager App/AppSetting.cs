@@ -89,10 +89,15 @@ namespace House_Manager_App
 
         private static void SetChores()
         {
-            AppData.Chores.Add(new Chore("1", "Clean Bathroom", 6));
-            AppData.Chores.Add(new Chore("2", "Do Dishes", 10));
-            AppData.Chores.Add(new Chore("3", "Take out the trash", 3));
-            AppData.Chores.Add(new Chore("4", "Clean the water fountain", 1));
+            // We should use ENUM values in the future
+            bool[] choreFreq1 = { true, true, true, true, true, false, false };
+            bool[] choreFreq2 = { true, false, true, false, true, false, false };
+            bool[] choreFreq3 = { false, true, false, true, false, false, false };
+
+            AppData.Chores.Add(new Chore("1", "Clean Bathroom", 6, choreFreq3));
+            AppData.Chores.Add(new Chore("2", "Do Dishes", 10, choreFreq1));
+            AppData.Chores.Add(new Chore("3", "Take out the trash", 3, choreFreq1));
+            AppData.Chores.Add(new Chore("4", "Clean the water fountain", 1, choreFreq2));
 
             XmlSerializer xmlSrChores = new XmlSerializer(typeof(List<Chore>));
             using (TextWriter writer = new StreamWriter(sChoresDataPath))

@@ -22,6 +22,7 @@ namespace House_Manager_App
         private void Demo()
         {
             ChoreManager.CreateChoreList(new DateTime(2016, 6, 6));
+            ChoreManager.AssignChores();
         }
     }
 }
