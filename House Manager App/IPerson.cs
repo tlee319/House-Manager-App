@@ -10,5 +10,6 @@ namespace House_Manager_App
     {
         bool[] Availability { get; set; }
         Chore[] ToDo { get; set; }
+        bool[] TaskGiven { get; set; }
     }
 }

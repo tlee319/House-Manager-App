@@ -8,6 +8,7 @@ namespace House_Manager_App
 {
     public class ChoreList
     {
+        private static Random Rand;
         private bool mIsComplete;
         private List<IPerson> mPersonList;
         private DateTime mStartDay;
@@ -19,6 +20,14 @@ namespace House_Manager_App
         private List<Task> Friday = new List<Task>();
         private List<Task> Saturday = new List<Task>();
         private List<Task> Sunday = new List<Task>();
+
+        private List<IPerson> MondayPeople = new List<IPerson>();
+        private List<IPerson> TuesdayPeople = new List<IPerson>();
+        private List<IPerson> WednesdayPeople = new List<IPerson>();
+        private List<IPerson> ThursdayPeople = new List<IPerson>();
+        private List<IPerson> FridayPeople = new List<IPerson>();
+        private List<IPerson> SaturdayPeople = new List<IPerson>();
+        private List<IPerson> SundayPeople = new List<IPerson>();
 
         #region Get and Set Methods
         public bool IsComplete
@@ -38,6 +47,7 @@ namespace House_Manager_App
             get { return mStartDay; }
             set { mStartDay = value; }
         }
+
         #endregion
 
         public ChoreList(List<IPerson> mPersonList, DateTime mStartDay)
@@ -45,39 +55,102 @@ namespace House_Manager_App
             IsComplete = false;
             PersonList = mPersonList;
             StartDay = mStartDay;
+            Rand = new Random();
+        }
+
+
+        public void AssignChoresToPeople()
+        {
+            int counter = 0;
+            // As long as we have more people than tasks, we good fam
+            if (Monday.Count <= MondayPeople.Count)
+            {
+                foreach (Task t in Monday)
+                {
+                    bool isAdded = false;
+                    while (isAdded == false)
+                    {
+                        int randomInteger = Rand.Next(MondayPeople.Count);
+                        isAdded = t.AssignPerson(MondayPeople[randomInteger], 0);
+                    }
+                    counter++;
+                    if (Monday.Count == counter)
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+
+        public void LoadPeopleForEachDay()
+        {
+            foreach (IPerson p in mPersonList)
+            {
+                if (p.Availability[0] == true)
+                {
+                    MondayPeople.Add(p);
+                }
+                if (p.Availability[1] == true)
+                {
+                    TuesdayPeople.Add(p);
+                }
+                if (p.Availability[2] == true)
+                {
+                    WednesdayPeople.Add(p);
+                }
+                if (p.Availability[3] == true)
+                {
+                    ThursdayPeople.Add(p);
+                }
+                if (p.Availability[4] == true)
+                {
+                    FridayPeople.Add(p);
+                }
+                if (p.Availability[5] == true)
+                {
+                    SaturdayPeople.Add(p);
+                }
+                if (p.Availability[6] == true)
+                {
+                    SundayPeople.Add(p);
+                }
+            }
         }
 
         public void LoadChoreForEachDay()
         {
             // Populate each Tasks with chores in it that need to be done for each day.
             // We will assign a brother to each Tasks.
+            // We actually don't wanna use AppDAta.Chores. Later we might want to have different
+            // sets of chores for different occation. For example, daily chores will be different 
+            // from work week.
             foreach (Chore c in AppData.Chores)
             {
                 if (c.Frequency[0] == true)
                 {
                     Monday.Add(new Task(c));
                 }
-                else if (c.Frequency[1] == true)
+                if (c.Frequency[1] == true)
                 {
                     Tuesday.Add(new Task(c));
                 }
-                else if (c.Frequency[2] == true)
+                if (c.Frequency[2] == true)
                 {
                     Wednesday.Add(new Task(c));
                 }
-                else if (c.Frequency[3] == true)
+                if (c.Frequency[3] == true)
                 {
                     Thursday.Add(new Task(c));
                 }
-                else if (c.Frequency[4] == true)
+                if (c.Frequency[4] == true)
                 {
                     Friday.Add(new Task(c));
                 }
-                else if (c.Frequency[5] == true)
+                if (c.Frequency[5] == true)
                 {
                     Saturday.Add(new Task(c));
                 }
-                else if (c.Frequency[6] == true)
+                if (c.Frequency[6] == true)
                 {
                     Sunday.Add(new Task(c));
                 }

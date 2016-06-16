@@ -39,6 +39,8 @@ namespace House_Manager_App
         public static void AssignChores()
         {
             mChoreList1.LoadChoreForEachDay();
+            mChoreList1.LoadPeopleForEachDay();
+            mChoreList1.AssignChoresToPeople();
         }
     }
 }
