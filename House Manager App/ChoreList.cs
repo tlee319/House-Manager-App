@@ -21,6 +21,8 @@ namespace House_Manager_App
         private List<Task> Saturday = new List<Task>();
         private List<Task> Sunday = new List<Task>();
 
+        private List<List<Task>> TaskList = new List<List<Task>>();
+
         private List<IPerson> MondayPeople = new List<IPerson>();
         private List<IPerson> TuesdayPeople = new List<IPerson>();
         private List<IPerson> WednesdayPeople = new List<IPerson>();
@@ -28,6 +30,8 @@ namespace House_Manager_App
         private List<IPerson> FridayPeople = new List<IPerson>();
         private List<IPerson> SaturdayPeople = new List<IPerson>();
         private List<IPerson> SundayPeople = new List<IPerson>();
+
+        private List<List<IPerson>> PeopleList = new List<List<IPerson>>();
 
         #region Get and Set Methods
         public bool IsComplete
@@ -61,6 +65,30 @@ namespace House_Manager_App
 
         public void AssignChoresToPeople()
         {
+            // All this should be turned into classes with names and shits
+            int dayCounter = 0;
+            foreach (List<Task> dayTasks in TaskList)
+            {
+                int count = 0;
+                foreach (Task t in dayTasks)
+                {
+                    bool isAdded = false;
+                    while (isAdded == false)
+                    {
+                        int randomInteger = Rand.Next(dayTasks.Count);
+                        isAdded = t.AssignPerson(PeopleList[dayCounter][randomInteger], dayCounter);
+                    }
+                    count++;
+                    if (dayTasks.Count == count)
+                    {
+                        break;
+                    }
+                }
+                dayCounter++;
+            }
+
+
+
             int counter = 0;
             // As long as we have more people than tasks, we good fam
             if (Monday.Count <= MondayPeople.Count)
@@ -75,6 +103,24 @@ namespace House_Manager_App
                     }
                     counter++;
                     if (Monday.Count == counter)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            if (Tuesday.Count <= TuesdayPeople.Count)
+            {
+                foreach (Task t in Tuesday)
+                {
+                    bool isAdded = false;
+                    while (isAdded == false)
+                    {
+                        int randomInteger = Rand.Next(MondayPeople.Count);
+                        isAdded = t.AssignPerson(MondayPeople[randomInteger],1);
+                    }
+                    counter++;
+                    if (TuesdayPeople.Count == counter)
                     {
                         break;
                     }
@@ -115,6 +161,14 @@ namespace House_Manager_App
                     SundayPeople.Add(p);
                 }
             }
+
+            PeopleList.Add(MondayPeople);
+            PeopleList.Add(TuesdayPeople);
+            PeopleList.Add(WednesdayPeople);
+            PeopleList.Add(ThursdayPeople);
+            PeopleList.Add(FridayPeople);
+            PeopleList.Add(SaturdayPeople);
+            PeopleList.Add(SundayPeople);
         }
 
         public void LoadChoreForEachDay()
@@ -155,6 +209,14 @@ namespace House_Manager_App
                     Sunday.Add(new Task(c));
                 }
             }
+
+            TaskList.Add(Monday);
+            TaskList.Add(Tuesday);
+            TaskList.Add(Wednesday);
+            TaskList.Add(Thursday);
+            TaskList.Add(Friday);
+            TaskList.Add(Saturday);
+            TaskList.Add(Sunday);
         }
     }
 }
